@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var str="var a=100";
+	eval(str);
+	console.log(a);
+	eval("var arr=[10,90,80,70,60]");
+	console.log(arr[3]);
+</script>
+
+</head>
+<body>
+	<input type="text" id="mtxt">
+	<button id="mbtn">코드가 실행됩니다.</button>	
+	<script>
+	var mypassword="aaa";
+		var btn=document.getElementById("mbtn");
+		btn.onclick=function(){
+			var ts=document.getElementById("mtxt").value;
+			eval(ts);
+		}
+	</script>
+</body>
+</html>

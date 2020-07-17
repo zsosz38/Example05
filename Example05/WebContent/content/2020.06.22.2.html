@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Print Q</h1>
+	<label> FileName: <input id="fName" type="text"
+		placeholder="프린트할 파일명을 입력하세요">
+	</label>
+	<input id="ptnBtn" type="button" value="인쇄보내기">
+	<div id="result"></div>
+</body>
+<script>
+//프린트 큐잉 구현 장당 인쇄시간은 10초
+	var fName=document.getElementById("fName");
+	var ptnBtn=document.getElementById("ptnBtn");
+	var result=document.getElementById("result");
+	var queueMem=[];
+	ptnBtn.onclick=function(){
+		queueMem.push(fName.value);
+		result.innerHTML="<p>"+fName.value+"의 인쇄가"+" 시작됩니다...........</p>"+result.innerHTML;
+		var pid=setInterval(function(){
+			startPrint(function(){},pid);
+		},10000);
+	}
+	function startPrint(cb,pid){
+			if(queueMem.lenght<=0){clearInterval(pid);
+				return;
+			}
+			var fileName=queueMem.shift();
+		result.innerHTML="<p>"+fileName+"의 인쇄가"+" 완료되었습니다.</p>"+result.innerHTML;
+		return cb();	
+		
+	}
+
+
+</script>
+</html>

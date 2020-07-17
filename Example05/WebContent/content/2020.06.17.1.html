@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var arr1=[10,20,30];
+	var arr2=arr1;
+	arr2[1]=100;
+	console.log(arr1[1]);
+	var obj1={a:100,b:200,c:300};
+	var obj2=obj1;
+	obj2.a=500;
+	console.log(obj1.a);
+	new Object();
+	//자동차 설계
+	//특징: 스피드, 사이즈, 색상
+	//기능: 출발, 정지, 과속
+		function MyCar(){
+		this.speed=0;
+		this.size=500;
+		this.color;
+		MyCar.prototype.shareVar=10000;
+		MyCar.prototype.start=function(){
+			document.write(this.color+"색의"+this.name+"차가"+"출발합니다.</br>");
+		}
+		MyCar.prototype.stop=function(){
+			document.write(this.color+"색의"+this.name+"차가 정차합니다.</br>");
+		}
+		MyCar.prototype.overSpeed=function(speed){this.speed+=speed;
+			document.write(
+					this.color+"색의"+this.name+"차의 속도가"+this.speed+
+					"로 변경되었습니다.</br>");
+		document.write("<br>")
+		}
+	}
+	var car1=new MyCar();
+	var car2=new MyCar();
+	var car3=new MyCar();
+	var car4=new MyCar();
+	var car5=new MyCar();
+	car1.name="엄마차";car2.name="아빠차";car3.name="동생차";
+	car4.name="할머니차";car5.name="내차";
+	car1.color="red";car2.color="gray";car3.color="white";
+	car4.color="black";car5.color="khaki";
+	car1.start();car2.start();car3.start();car4.start();car5.start();
+	car1.overSpeed(30);car2.overSpeed(20);car3.overSpeed(50);car4.overSpeed(10);car5.overSpeed(30);
+	car1.overSpeed(70);car2.overSpeed(80);
+	car1.overSpeed(20);car2.overSpeed(30);
+	car1.stop();car2.stop();car3.stop();car4.stop();car5.stop();
+	console.log("name"in car3);
+	console.log("aaa"in car3);
+	delete car3.name;//객체내부 속성 지우기
+	console.log("name"in car3);//객체 내부 속성 존재 검사
+	console.log(MyCar.prototype.shareVar);
+	//console.log(car5.prototype.shareVar); 오류 변수?직접 넣을 수X
+	car5.shareVar=50000;
+	console.log(car5.shareVar);
+	console.log(car4.shareVar);
+	Object.prototype.myshare=5;
+	Object.prototype.testFun=function(){alert("오브젝트 함수가 실행")}
+	car4.testFun=function(){alert("카4에서만 실행되는 함수")}
+	console.log(car5.myshare);
+	car1.testFun();
+	car4.testFun();
+	</script>
+		</head>
+<body>
+
+</body>
+</html>

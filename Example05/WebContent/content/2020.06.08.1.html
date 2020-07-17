@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script>
+		var userInput = prompt("몇단 가능? ex) 3-5");
+
+		var chk1 = userInput.indexOf("-");
+		var chk2 = userInput.indexOf(",");
+		var userArr = [];
+
+		if (chk1 >= 0) {
+			// - 일때 2-4
+			var tmpArr = userInput.split("-");
+			var k = 0;
+			for (var i = tmpArr[0]; i <= tmpArr[1]; i++) { //i는 2단부터4단까지
+				userArr[k] = i; // userArr 0부터 3까지 반복 -> 길이는 4 userArr0=2 userArr1=3 userArr2=4
+				k++;
+			}
+		} else if (chk2 >= 0) {
+			// , 일때
+			userArr = userInput.split(",");
+		} else {
+			// 단일 숫자 일때
+			userArr[0] = userInput;
+		}
+
+		var body = document.getElementsByTagName('body')[0];
+		var inHtml = "";
+
+		for (i = 0; i < userArr.length; i++) {
+			var subHtml = "";
+			for (j = 1; j <= 9; j++) {
+				subHtml += userArr[i] + " * " + j + "=" + userArr[i] * j
+						+ "<br>";
+			}
+			inHtml += "<div style= 'float: left; text-align: left; border: 1px solid black;'>"
+					+ subHtml + "</div>";
+		}
+
+		body.innerHTML = inHtml;
+	</script>
+
+
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+//1.Array 객체
+	//중요!length속성, concat메서드
+	var a1=['가','나'];
+	var a2=['다','라','마'];
+	var newArr=a1.concat(a2);
+	console.log(newArr);
+	// entries  배열을 entry 형태로 반환
+	var entObj=newArr.entries();
+	console.log(entObj)
+	console.log(entObj.next().value)
+	console.log(entObj.next().value)
+	console.log(entObj.next().value)
+	console.log(entObj.next().value)
+	console.log(entObj.next().value)
+	console.log(entObj.next().value)
+	
+	/*for(x of entObj){
+		console.log(x);
+	}
+	*/
+	//every(cb,[passval]) 모든 요소를 순회하며 체크하고 모두true이여야 true를 리턴한다.
+	//var cb=function(element,index,arr){return boolean}
+	var testArr1=[30,60,10,50,40];
+	var resultArr1=testArr1.every(function(cv,ix,arr){return cv>=this},30);
+	console.log(resultArr1);
+	//fill(fillValue[,startindex][,endindex])
+	//배열을 fillValue로 모두 채운다.
+	var testArr2=['딸기','멜론','수박','복숭아','바나나'];
+	testArr2.fill('파인애플',1,4);
+	console.log(testArr2);
+	testArr2.fill(undefined);
+	console.log(testArr2);
+	//중요!filter(cb,thisvalue) 
+	//배열을 순회하며 조건에 맞는 값들만 새로운 배열로 리턴한다.
+	//thisvalue는 cb 콜백함수 내부에서 this 키워드로 할당되는 값이다.
+	//cb=function(currentValue[,index,arr])
+	var testArr3=[30,60,40,10,50,80];
+	var resultArr3=
+	testArr3.filter(function(curVal){return curVal>30});
+	console.log(testArr3);
+	function filterImpl(arr,cb){
+		var newArr=[];
+		for(var i=0;i<arr.length;i++){
+			var res=cb(arr[i]);
+			if(res==true){
+				newArr.push(arr[i]);
+			}
+		}
+		
+		return newArr;
+	}
+	var resImpl=
+	filterImpl(testArr3,function(curVal){return curVal>30});
+	console.log(resImpl);
+	//find.(cb,thisval) 해당 배열에서 cb을 만족하는 첫번 째 값을 리턴
+	var testArr4=[10,20,30,40,50];
+	var resVal=testArr4.find(function(curVal){return curVal>=35});	
+	console.log(resVal);
+	//findIndex(cb,thisVal) 해당 배열에서 cb를 만족하는 첫번째 값의 인덱스리턴
+	var resVal4=testArr4.findIndex(function(curVal){return curVal>=350});
+	console.log(resVal4);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

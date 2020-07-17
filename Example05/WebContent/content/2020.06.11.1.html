@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+//이벤트 코드에서 많이 사용
+getNetwork(function(data){
+	console.log("받은 데이터:"+data);
+});
+	function getNetwork(cb){
+		console.log("네트워크에서 데이터를 받아내는 함수");
+		console.log("함수 실행 종료");
+		cb("네트워크에서 받은 데이터");
+}
+//객체지향적 코드의 캡슐화 기능 구현시 
+function capRun(){
+	var a=100;//함수 내부의 지역변수a는 외부에서 접근할 수 없다.
+	return function(val){
+		a=val;
+		return a;
+	}
+}
+var f=capRun();
+console.log(f(100));
+console.log(f(200));
+console.log(f(300));
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	fieldset{float:left;margin-right:2em}
+	button img,fieldset div,#select_com img,#result img{width:50px; height:50px;border:1px solid blue;}
+	.a{transform:scaleX(-1)}
+</style>
+</head>
+<body>
+	<h1>가위바위보 게임</h1>
+	<fieldset>
+	<legend>사용자 선택</legend>
+	<button id="ga" onclick="select_user(this.id)">
+		<img src="../img/가위.jpg" />
+	</button>
+	<button id="ba" onclick="select_user(this.id)">
+		<img src="../img/바위.jpg" />
+	</button>
+	<button id="bo" onclick="select_user(this.id)">
+		<img src="../img/보.jpg" />
+	</button>
+	</fieldset>
+	<fieldset>
+		<legend>컴퓨터 선택</legend>
+		<div id="select_com"></div>
+	</fieldset>
+	<hr style="clear:both">
+	<h2>결과:</h2>
+	<div id="result"></div>
+	
+</body>
+<script>
+	let eleResult=document.getElementById("result");
+	let select_com=document.getElementById("select_com");
+	function select_user(val){
+		console.log(val)
+		document.getElementById(val).style.background="red";
+		eleResult.innerHTML=document.getElementById(val).innerHTML;
+		var btns=document.getElementsByTagName("button");
+		for(let i=0;i<btns.length;i++){
+			btns[i].disabled=true;
+		}
+		if(val=="ga")val="가위"
+		else if(val=="ba")val="바위"
+		else val="보";
+		select_comF(val);
+	}
+	function select_comF(val){//컴퓨터 선택 호출
+		print_com(val, function(user,com){//컴퓨터 선택 콜백으로 결과 출력
+			//결과 출력
+			
+			let res=result(user,com);
+		eleResult.innerHTML+="<h3>"+res+"</h3>"
+	});
+}
+	function result(user,com){//승부 결정 로직
+		resVal="";
+		switch(user){
+		case "가위":
+			if(com=="바위")resVal="컴퓨터 승리";
+			else if(com=="보")resVal="사용자 승리";
+			else resVal="비김";
+			;break;
+		case "바위":
+			if(com=="보")resVal="컴퓨터 승리";
+			else if(com=="가위")resVal="사용자 승리";
+			else resVal="비김";
+			;break;
+		case "보":
+			if(com=="가위")resVal="컴퓨터 승리";
+			else if(com=="바위")resVal="사용자 승리";
+			else resVal="비김";
+			;break;
+		}
+		return resVal;
+	}
+	function print_com(val,cb){
+		let cnt=0;
+		let pid=setInterval(function(){
+			cnt++;
+			let rd=Math.floor(Math.random()*(4-1)+1)
+			let str="";
+			switch(rd){
+			case 1: str='<img class="a" src="../img/가위.jpg" />'; break;
+			case 2: str='<img class="a" src="../img/바위.jpg" />'; break;
+			case 3: str='<img class="a" src="../img/보.jpg" />'; break;
+			}
+			select_com.innerHTML=str;
+			if(cnt>10){clearInterval(pid);
+			eleResult.innerHTML+=select_com.innerHTML;
+				if(rd==1)rd="가위"
+				else if(rd==2)rd="바위" 
+				else rd="보";
+				return cb(val,rd);}
+		},500);
+	}
+
+</script>
+</html>

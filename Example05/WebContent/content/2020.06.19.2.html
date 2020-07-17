@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#site_addr{
+	width:160px;}
+</style>
+
+</head>
+<body>
+	<h1>웹브라우저 히스토리 기능 구현</h1>
+		<input id="site_addr" type="text" placeholder="사이트 주소를 입력하세요">
+		<br/>
+		<input id="site_back" type="button" value="뒤로">
+		<input id="site_move" type="button" value="이동">
+		<input id="site_forw" type="button" value="앞으로">
+	<h1>프린터 스풀링 기능 구현</h1>
+		<input id="print_name" type="text" placeholder="인쇄할 파일명을 입력하세요">
+		<br/>
+		<input id="print_run" type="button" value="인쇄하기">
+		<br/>
+		<div id="res"></div>
+</body>		
+<script>
+var stackMem=[];//스택구조 메모리 구현
+var stackSub=[];//뒤로 버튼 클릭시 팝 데이터 저장 공간
+var queueMem=[];//큐 구조 메모리 구현
+	var site_addr=document.getElementById("site_addr");
+	var site_back=document.getElementById("site_back");
+	var site_move=document.getElementById("site_move");
+	var site_forw=document.getElementById("site_forw");
+	var print_name=document.getElementById("print_name");
+	var print_run=document.getElementById("print_run");
+	var res=document.getElementById("res");
+	site_move.onclick=function(){
+		stackMem.push(site_addr.value);
+		res.innerHTML+="<p>"+site_addr.value+"로 이동합니다.</p>"
+		site_addr.value="";
+	}//사이트 이동버튼 눌렀을때
+	site_back.onclick=function(){
+		stackMem.unshift(stackMem.pop());
+		var murl=stackMem.pop();
+		stackMem.unshift(murl);
+		res.innerHTML+="<p>"+murl+"로 이동합니다.</p>";
+	}//사이트 뒤로 버튼을 눌렀을때
+	site_forw.onclick=function(){
+		var murl=stackSub.shift();
+		stackMem.push(murl);
+		res.innerHTML+="<p>"+murl+"앞으로 이동합니다.</p>";
+	}//사이트 앞으로 버튼을 눌렀을때
+	
+	print_run.onclick=function(){}//프린트 버튼을 눌렀을때
+	
+</script>
+
+</html>

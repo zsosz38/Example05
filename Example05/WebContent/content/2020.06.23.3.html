@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+//string 클래스
+	var testStr1="반가워요 홍길동";
+	var res1=testStr1.endsWith("홍길동");
+	console.log(res1);
+	console.log(testStr1.startsWith("반"));//true
+	console.log("a".charCodeAt());//97
+	console.log(String.fromCharCode(97));//a
+	console.log(testStr1.includes("요"));//true
+	console.log(testStr1.indexOf("요"));//3
+	console.log(testStr1.charAt(3));//요
+	console.log(testStr1.lastIndexOf("요"));//3
+	var testStr2="홍길동 안녕 홍길동 반가워 홍길동";
+	//match(regExp)//정규표현식을 사용하여 매칭되는 문자열을 배열로 리턴한다.
+	var resArr2=testStr2.match("홍길동");
+	console.log(resArr2);
+	var testStr3="hello";
+	console.log(testStr3.repeat(5));
+	var testStr4="안녕 홍길동 반가워";
+	//replace(oldString,newString);//바뀐 문자열을 리턴
+	var newString4=testStr4.replace("홍길동","이순신");
+	console.log(newString4);
+	var testStr5="반가워 홍길동";
+	//search(regExp) indexOf와 동일하지만 차이점은 정규표현식 사용 여부
+	console.log(testStr5.search("홍길동"));
+	//slice(startIndex[,endIndex])
+	console.log(testStr5.slice(-1));
+	//split(regExp[,limit]) limit 만큼 regExp구분자로 구분하여 배열로 리턴
+	console.log(testStr5.split(""));
+	//substr(startIndex[,length]) 문자열 일부를 추출하여 리턴
+	var testStr6="광주 광역시 북구 임동 ";
+	console.log(testStr6.substr(3,3))//광역시
+	//substring(startIndex,endIndex)문자열 일부를 추출하여 리턴
+	console.log(testStr6.substring(3,6));//광역시
+	var testStr7="abCdEFg";
+	console.log(testStr7.toLowerCase());
+	console.log(testStr7.toUpperCase());
+	console.log(testStr7.trim());
+	//toLowerCase() 소문자로 모두 변경
+	//toUpperCase() 대문자로
+	//trim() 좌우 공백은 제거합니다.
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

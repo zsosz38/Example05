@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form>
+<h1>재미로 보는 관계유형 테스트</h1>
+<h2>나의 인간관계 유형은?</h2>
+<p>
+닉네임을 입력하세요. <input type="text" name="name" id="name" size="30" maxlength="6"/><br/>
+<p>
+<p>
+1. 친한 친구와의 식사자리에서 메뉴를 고를 때, 당신의 선택은?<br/>
+<input type="radio" name="rdo1"> 옆 테이블 사람에게 먹고 있는 메뉴를 물어본다.<br/>
+<input type="radio" name="rdo1"> 내가 먹고 싶은 메뉴 위주로 주문한다.<br/>
+<input type="radio" name="rdo1"> "난 아무거나" 라고 말한다.<br/>
+<input type="radio" name="rdo1"> 먹고 싶은 메뉴를 각자 하나씩 고른다.<br/>
+<br/>
+2. 연락한 지 오래된 친구와의 사진이 3년 전 오늘이라며 SNS에 떴을 때 당신은?<br/>
+<input type="radio" name="rdo2">오랜만에 친구에게 연락을 해본다.<br/>
+<input type="radio" name="rdo2">내 과거 사진을 보면서 지금은 용 됐다고 생각한다.<br/>
+<input type="radio" name="rdo2">멀어진 사이를 혼자 씁쓸해한다.<br/>
+<input type="radio" name="rdo2">신경 쓰지 않고 오늘 올릴 사진을 찾아본다.<br/>
+<br/>
+3.친구와 약속이 있던 당일, 갑자기 취소 통보를 받았을 때 당신은?<br/>
+<input type="radio" name="rdo3">다른 친구와 약속을 잡는다.<br/>
+<input type="radio" name="rdo3">친구와 가려고 했던 곳을 혼자서라도 가본다.<br/>
+<input type="radio" name="rdo3">괜찮다고 하고 속으로 운다.<br/>
+<input type="radio" name="rdo3">기뻐하며 집에서 쉰다.<br/>
+<br/>
+4.혼자만의 시간을 보내고 있던 당신, 이때 동창 친구들의 단톡방에 초대된다면 당신은?<br/>
+<input type="radio" name="rdo4">바로 확인하고 칼답장한다.<br/>
+<input type="radio" name="rdo4">알람을 끈 채 내가 보고 싶을 때 확인한다.<br/>
+<input type="radio" name="rdo4">대답은 하지 않고 계속 지켜만 본다.<br/>
+<input type="radio" name="rdo4">단톡방을 나간다.<br/>
+<br/>
+5.이른 아침,광컴 교실로 올라가는 엘리베이터에서 얼굴만 아는 같은 반 동료를 만났을 때 당신의 행동은?<br/>
+<input type="radio" name="rdo5">반갑게 인사한다.<br/>
+<input type="radio" name="rdo5">다른 곳 가는 척하면서 먼저 보낸다.<br/>
+<input type="radio" name="rdo5">어색하지만 티 내지 않고 함께 탄다.<br/>
+<input type="radio" name="rdo5">계단으로 올라간다.<br/>
+<br/>
+<hr/>
+
+<input type="button" value="결과 전송"onClick="Check(this.form);"/>
+<p/>
+<div id="result"></div>
+</form>
+</head>
+
+
+
+<script>
+	var rdo1=document.getElementsByName("rdo1");
+	var rdo2=document.getElementsByName("rdo2");
+	var rdo3=document.getElementsByName("rdo3");
+	var rdo4=document.getElementsByName("rdo4");
+	var rdo5=document.getElementsByName("rdo5");
+	var sum = 0;
+	
+function Check(form){
+	if(!form.name.value){
+		alert('닉네임을 입력하세요.');
+		form.name.focus();
+		return;
+	}else{
+			if((rdo1[0].checked==false)&&(rdo1[1].checked==false)&&
+			(rdo1[2].checked==false)&&(rdo1[3].checked==false)){
+				alert("1번 항목을 체크하세요");
+				return;
+			}
+			if((rdo2[0].checked==false)&&(rdo2[1].checked==false)&&
+			(rdo2[2].checked==false)&&(rdo2[3].checked==false)){
+				alert("2번 항목을 체크하세요");
+				return;
+			}
+			if((rdo3[0].checked==false)&&(rdo3[1].checked==false)&&
+			(rdo3[2].checked==false)&&(rdo3[3].checked==false)){
+				alert("3번 항목을 체크하세요");
+				return;
+			}
+			if((rdo4[0].checked==false)&&(rdo4[1].checked==false)&&
+			(rdo4[2].checked==false)&&(rdo4[3].checked==false)){
+				alert("4번 항목을 체크하세요");
+				return;
+			}
+			if((rdo5[0].checked==false)&&(rdo5[1].checked==false)&&
+			(rdo5[2].checked==false)&&(rdo5[3].checked==false)){
+				alert("5번 항목을 체크하세요");
+				return;
+			}
+		
+		
+	}
+	btnClick();
+}
+function btnClick(){
+	calc();
+
+}
+
+
+function calc() {
+
+for (var i=0; i<=3; i++) {
+   if (rdo1[i].checked == true) {
+      sum = sum + i;
+   }
+}
+for (var i=0; i<=3; i++) {
+   if (rdo2[i].checked == true) {
+      sum = sum + i;
+   }
+}
+for (var i=0; i<=3; i++) {
+   if (rdo3[i].checked == true) {
+      sum = sum + i;
+   }
+}
+for (var i=0; i<=3; i++) {
+   if (rdo4[i].checked == true) {
+      sum = sum + i;
+   }
+}
+for (var i=0; i<=3; i++) {
+   if (rdo5[i].checked == true) {
+      sum = sum + i;
+   }
+}
+
+if (sum>=10) {
+   result.innerHTML="당신의 점수는 " + sum + " 입니다<br/>" + "<p>당신은 지금 곁에 있는 사람이 제일 중요한 관계 미니멀리스트형";
+} else if (sum>=6) {
+   result.innerHTML="당신의 점수는 " + sum + " 입니다<br/>" + "<p>당신은 내 마음보다 관계가 먼저인 관계 수호자형";
+} else{
+   result.innerHTML="당신의 점수는 " + sum + " 입니다<br/>" + "<p>당신은 처음 본 사람과도 바로 친구되는 관계 인싸형";
+} 
+
+}
+
+
+</script>
+</body>
+</html>

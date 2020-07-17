@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>프린트 스풀링 구현 재귀함수</h1>
+<label>File<input type="text" id="fName"></label>
+<br>
+<input type="button" id="runPrint" value="Print">
+<div id="res"></div>
+<script>
+	var fName=document.getElementById("fName");
+	var runPrint=document.getElementById("runPrint")
+	var res=document.getElementById("res");
+	runPrint.onclick=function(){
+		queueMem.push(fName.value);
+		if(sw==false){queAccess()}}
+	var queueMem=[];
+	var sw=false;
+	function queAccess(){//큐에 접근해서 인쇄를 호출하는 재귀함수
+		sw=true;
+		printExec(function(){
+			console.log(queueMem)
+			if(queueMem.length>0){
+				queAccess();
+			}else{
+				sw=false;
+			}
+		});
+	
+	}
+	function printExec(cb){//프린트를 10초가 실행하는 함수
+		
+			var file=queueMem.shift();
+			res.innerHTML="<p>"+file+"의 프린트를 시작합니다.</p>"+res.innerHTML;
+			setTimeout(function(){
+				res.innerHTML="<p>"+Date().toLocaleString()+"파일명"+
+				file+"인쇄완료:</p>"+res.innerHTML;
+				return cb();
+			},10000);	
+	}
+	
+</script>
+</body>
+</html>

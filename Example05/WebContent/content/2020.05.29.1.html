@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	//1.변수
+	var alpha;// 변수를 선언하다.
+	alpha=100;// 변수를 초기화 시키다.
+	//변수를 선언과 동시에 초기화 시키다. 
+	var beta = 3000;
+	var a,b,c;// a b c 변수를 동시에 선언하다. 
+	//여러변수를 선언과 동시에 초기화 하다. 
+	var d=100,e=200;
+	c=100;//초기화한것, 변수에 값을 할당(assign,place)하다.
+ //2. 변수의 범위(scope) 전역(global), 지역(local)
+ //바깥쪽 중괄호에 변수를 선언하면 안쪽 중괄호에서 사용할 수 있으며 
+ //안쪽 중괄호에 변수를 선언하면 바깥쪽에서 사용할 수 없다.
+ //{   { }   } X
+ 	//변수 이름이 같다면 가장 가까운쪽 이름의 변수를 사용한다.
+ 	var y = 300;
+ 	function printZ(){
+ 		var y=200;
+ 		console.log("안쪽y:"+y);
+ 	}
+ 	printZ();
+ 	console.log("바깥쪽y:"+y);
+ 	//변수의 적용 범위가 다르면동일한 이름으로 작명할 수 있다.
+ //3. 상수
+ 	 //숫자로 입력시 의미가 없으므로 숫자에 의미를 부여하기 위함
+ 	 //한번 초기화 하면 변경할 수 없으므로
+ 	 //var(글로벌) let(로컬) const(상수) 로 선언가능
+	 const APPLE=1;
+ 	 const BANANA=2;
+ 	 const ORANGE=3;
+ 	 console.log(APPLE);
+ 	 console.log(BANANA);
+ 	 console.log(ORANGE);
+ 	 //APPLE=5;
+ 	 var aaa=undefined;
+ 	 //undefined 변수공강의 크기가 결정되지 않음
+ 	 //null 변수공간의 크기가 결정되어 있을때
+ 	 console.log(aaa);
+ 	 console.log(10/0);//infinity 
+ 	 console.log(0/10);//0
+ 	 console.log(3/"a"); //NaN
+ 	 
+</script>
+</head>
+<body>
+
+</body>
+</html>

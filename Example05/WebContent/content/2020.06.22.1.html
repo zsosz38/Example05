@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>웹브라우저 히스토리 기능 구현</h1>
+	<label>이동 페이지 주소<input id="webAddr" type="text" placeholder="이동할 웹 주소를 입력하세요"></label>
+	<br>
+	<label>사이트 이름<input id="webName" type="text" placeholder="이동할 웹 사이트 이름입력"></label>
+	<br>
+	<input type="button" value="뒤로" id="preBtn">
+	<input type="button" value="이동하기" id="movBtn">
+	<input type="button" value="앞으로" id="nexBtn">
+	<br>
+	<div id="result"></div>
+</body>
+<script>
+	var webAddr=document.getElementById("webAddr");
+	var webName=document.getElementById("webName");
+	var preBtn=document.getElementById("preBtn");
+	var movBtn=document.getElementById("movBtn");
+	var nexBtn=document.getElementById("nexBtn");
+	var result=document.getElementById("result");
+	var prePageStack=[];
+	var nextPageStack=[];
+	var curPage="";
+	var sw=false;          
+	//사이트 주소! 사이트이름
+	movBtn.onclick=function(){
+		if(sw){
+			prePageStack.push(curPage);
+		}
+		if(curPage.value="");{
+		curPage=webAddr.value+"!"+webName.value;
+		result.innerHTML="<p>"+webAddr.value+"주소로 "+webName.value+" 사이트에 접속합니다."+"</p>"+
+			result.innerHTML;
+		
+		sw=true;
+		}
+	}
+	preBtn.onclick=function(){
+		if(prePageStack.length<=0) {
+			return;
+			
+			
+			}
+		nextPageStack.unshift(curPage);
+		curPage=prePageStack.pop();
+		//curPage www.naver.com!네이버
+		var addr_split=curPage.split("!");
+		result.innerHTML="<p>"+addr_split[0]+"주소로 "+addr_split[1]+" 사이트에 접속합니다."+"</p>"+
+		result.innerHTML;
+	}
+	nexBtn.onclick=function(){
+		if(nextPageStack.length<=0){
+			return;
+		}
+		prePageStack.push(curPage);
+		curPage=nextPageStack.shift();
+		//curPage www.naver.com!네이버
+		var addr_split=curPage.split("!");
+		result.innerHTML="<p>"+addr_split[0]+"주소로 "+addr_split[1]+" 사이트에 접속합니다."+"</p>"+
+		result.innerHTML;
+	}
+	
+
+</script>
+</html>

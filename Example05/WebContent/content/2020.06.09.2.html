@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var fixColumn= 7; var k=4;
+	for(var i=1; i<15;i=i+2){
+		var spaceCnt= Math.abs(parseInt((fixColumn-i)/2));
+		var m=i;
+		if(i>=9){
+			m=i-k;
+			k=k+4;
+		}
+	var targetStr= "&nbsp;".repeat(spaceCnt)+"★".repeat(m)+"<br/>";
+	
+	document.write(targetStr);
+	}
+	
+</script>
+
+
+</head>
+
+
+<body>
+
+</body>
+</html>

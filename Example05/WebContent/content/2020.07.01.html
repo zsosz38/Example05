@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	fieldset{float:left;margin-right:2em}
+	button img,fieldset div,#select_com img,#result img{width:50px; height:50px;border:1px solid blue;}
+	.a{transform:scaleX(-1)}
+</style>
+</head>
+<body>
+	<h1>직접 만드는 가위바위보 게임</h1>
+	<fieldset>
+	<legend>사용자 선택</legend>
+	<button id="ga" onclick="select_user(this.id)">
+		<img src="../img/가위.jpg" />
+	</button>
+	<button id="ba" onclick="select_user(this.id)">
+		<img src="../img/바위.jpg" />
+	</button>
+	<button id="bo" onclick="select_user(this.id)">
+		<img src="../img/보.jpg" />
+	</button>
+	</fieldset>
+	<fieldset>
+		<legend>컴퓨터 선택</legend>
+		<div id="select_com"></div>
+	</fieldset>
+	<hr style="clear:both">
+	<h2>결과:</h2>
+	<div id="result"></div>
+	
+</body>
+<script>
+//function select_user(){}//사용자 선택 이미지
+//function select_com(){}//computer 선택 이미지
+//function select_anal(){}//가위바위보 결과 분석
+//function print_result(){}//화면에 결과 표기
+let eleResult=document.getElementById("result");
+let select_com=document.getElementById("select_com");
+
+function select_user(val){
+	console.log(val)
+	document.getElementById(val).style.background="red";
+	eleResult.innerHTML=document.getElementById(val).innerHTML;
+	var btns=document.getElementByTagName("button");
+	for(let i=0;i<btns.length;i++){
+		btns[i].disabled=true;
+	} 
+	if(val=="ga")val="가위"
+	else if(val=="ba")val="바위"
+	else val="보";
+	select_comF(val);
+}
+function select_comF(val){
+	print com(val,function(user,com){
+		let res=result(user,com);
+		Result.innerHTML+="<h3>"+res+"</h3>"
+	});
+}
+function result(user,com){
+	resVal="";
+	switch(user){
+	case "가위":
+		if(com=="바위")resVal="컴퓨터 WIN";
+		else if(com=="보")resVal="사용자 WIN";
+		else(com=="가위")resVal="비김";
+		;break;
+	case "바위":
+		if(com=="가위")resVal="사용자 WIN";
+		else if(com=="바위")resVal="비김";
+		else(com=="보")resVal="컴퓨터 WIN";
+		;break;
+	case "보":
+		if(com=="가위")resVal="컴퓨터 WIN";
+		else if(com=="바위")resVal="사용자 WIN";
+		else(com=="보")resVal="비김";
+		;break;
+	}return resVal;
+}
+function print_com(val,cb){
+	let cnt=0;
+	let pid=setInterVal(function(){
+		cnt++;
+	
+	
+	
+	
+	})
+}
+
+
+
+
+
+</script>
+</html>

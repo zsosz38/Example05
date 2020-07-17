@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	//한줄 주석문 입니다.
+	alert("주석문은 코드에 아무런 영향이 없습니다.");
+	/*
+		여러줄
+		주석문
+		내용 입력
+	*/
+	/* 주석문 단축키는 Ctrl+shift+/ 입니다. */
+	document.write("기존 문장을 덮어씁니다.");
+	
+	var data1 = prompt("첫번째 숫자를 입력하세요");
+	var data2 = prompt("두번째 숫자를 입력하세요");
+	var result = parseInt(data1)*parseInt(data2);
+	var userInput = confirm("연산을 수행할까요?");
+	if(userInput==true){
+		alert(result);
+	}else{
+		alert("연산을 취소하였네요");
+	}
+	alert("프로그램이 \n 끝났습니다.");
+	
+</script>
+</head>
+<body>
+	요청에 대한 응답 문서 입니다.
+</body>
+</html>

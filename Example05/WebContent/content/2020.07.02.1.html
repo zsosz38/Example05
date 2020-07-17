@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	class Car{//객체지향 클래스 - 객체를 만들어 내는 설계또
+		constructor(brand){
+			this.brand=brand;
+		}
+		iamparent(){
+			console.log("나는 부모메소드")
+			console.log(this.brand);
+			console.log(this.model);
+		}
+	}
+	let mycar= new Car("Ford");
+	//mycar.iamthis
+	console.log(mycar.brand);
+	class Model extends Car{
+		constructor(brand,model){
+			super(brand);
+			this.model=model;
+		}
+		iamthis(){
+			console.log("나는 자식메소드")
+			console.log(this.brand);
+			console.log(this.model);
+		}
+	}
+	let mymodel =new Model("HyunDai","Sonata");
+	mymodel.iamthis();
+	mymodel.iamparent();
+	mymodel.aaa=100;//바깥쪽에서는 변수 정의 가능 class안에서는 NO
+	console.log(mymodel.aaa);
+	console.log(mymodel);
+	//static method
+	class MyCar{
+		static carColor="노란차";//static변수
+		carKind="중형차";//객체변수
+		//생성자 외부에 변수 및 객체 변수를 정의 할 수 없다.
+		constructor(carname){
+			if(!carName){
+				this.carName="노란차";
+			}else{
+				this.carName=carName;
+			}
+		}
+		static printCarName(){
+			console.log("단순한 기능만 정의 하세요");
+			console.log(MyCar.carColor);
+		}
+	}
+	MyCar.printCarName();
+	console.log(MyCar.carKind)
+</script>
+</head>
+<body>
+
+</body>
+</html>

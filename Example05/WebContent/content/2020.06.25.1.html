@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//정규표현식 REGEXP 활용
+	//1.주민등록번호 검증
+		// 민증번호 패턴:숫자로 시작한다, 앞6개의 숫자,하이픈,성별,뒤7개의 숫자
+	var pattern1=/^\d{6}-[1-6]\d{6}/;
+	var arr1="200203-6150713".match(pattern1);
+	console.log(arr1);
+		//--이메일 형식 패턴: abc3d@aaa.com
+			//숫자로 시작하지 않는다. @가 붙는다.
+			//.이 한개일떄 .뒤에 영문이 3글자 aaa.com
+			//..이 두개일떄.뒤에 영문이 2글자 aaa.co.kr
+			// @뒤는 숫자로 시작하지 않는다.
+	var pattern2=
+		/^[^0-9].*@[^0-9].*\.([a-zA-Z]{2}\.[a-zA-Z]{2}|[a-zA-Z]{3})$/i;
+	var arr2="aaa@aaa.com".match(pattern2);
+	console.log(arr2);
+	//가입시 비밀번호 규칙을 만듭니다.
+	//규칙1. 비밀번호는 8글자 이상 13글자 이하로 생성해야한다.
+	//length>=8 && length<=13
+	//규칙2. 비밀번호는 특수문자# 또는 @또는 *을 한개 이상 조합해야한다.
+	//[\#\@\*]
+	//규칙3. 비밀번호는 대문자를 한개 이상 조합해야한다.
+	//[A-Z]
+	//규칙4. 비밀번호는 숫자로 시작할 수 없다.
+	//[^0-9]
+	//search 메소드 활용 return boolean
+	var mypass1="arr#Az33";//pass
+	var mypass2="1ar#Az33";//fail
+	var mypass3="ar#Az33aaetrsc";//fail
+	var mypass4="arAz33ee33";//fail
+	var mypass5="arr#3ee33";//fail
+	
+	checkPassword(mypass1,1)
+	checkPassword(mypass2,2)
+	checkPassword(mypass3,3)
+	checkPassword(mypass4,4)
+	checkPassword(mypass5,5)
+	function checkPassword(pwd,num){
+		var chk="fail";
+		var p1=/[\#\@\*]/;
+		var p2=/[A-Z]/;
+		var p3=/^[^0-9]/;
+		var c1=pwd.length >=8 && pwd.length <=13;
+		var c2=pwd.search(p1)>-1;//특수문자
+		var c3=pwd.search(p2)>-1;//대문자
+		var c4=pwd.search(p3)>-1;//숫자시작
+		if(c1&&c2&&c3&&c4){
+			chk="pass";
+		}else{
+			var msg="알수없는 오류";
+			switch(false){
+			case c1:msg="비밀번호를 8자 이상 13자 이하로 생성해주세요";
+					  break;
+			case c2:msg="비밀번호는 특수문자# 또는 @또는 *을 한개 이상 조합해야합니다";
+			 		  break;
+			case c3:msg="대문자를 한개 이상 조합해야합니다";
+			 		  break;
+			case c4:msg="숫자로 시작할 수 없습니다.";
+			}
+
+		alert(msg);
+		}
+		console.log(num+":"+chk);
+	}
+	//replace(regExp,newChar)
+	var testStr="안녕하세요 성명:서지은 그리고 성명:공지철";
+	var res1=testStr.replace(/성명:.../g,function(val){
+		return val+" 씨";
+	});
+	console.log(res1);
+	//split(regExp)
+	var testStr2="서지은asx 공지철asb 네이버asc 카카오asf 기기기";
+	var testArr2=testStr2.split(/as./g);
+	console.log(testArr2);
+	
+	
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

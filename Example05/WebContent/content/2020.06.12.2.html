@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function piggyBank(pid,ppw){
+		this.pid=pid;this.ppw=ppw;
+		var totalMoney=0;	
+		this.getTotalMoney=function(){return totalMoney;}//토탈 금액확인
+		this.setSaveMoney=function(money){totalMoney+=money}//저축
+		this.setFetchMoney=function(money,id,pw){
+			
+			if(id==this.pid&&pw==this.ppw){
+				if(money>this.totalMoney){
+					alert("잔액이 부족합니다.");
+					return;
+				}
+				totalMoney-=money;	
+			}else{
+				alert("사용자 인증에 실패");
+			}
+		};	//인출
+	}
+	var psObj1= new piggyBank("지은","0308#");
+	var psObj2= new piggyBank("가은","0704#");
+	psObj1.setSaveMoney(5000);
+	psObj2.setSaveMoney(10000);
+	psObj1.setFetchMoney(3000,"지은","0308#");
+	psObj2.setFetchMoney(6000,"가은","0704#");
+	//psObj1.totalMoney=500;
+	//psObj2.totalMoney=1000;
+	//psObj1.totalMoney=10000;
+	console.log(psObj1.getTotalMoney());
+	console.log(psObj2.getTotalMoney());
+	console.log(psObj1.totalMoney);
+	
+	function ObjTest();{//지역변수로 선언되면 객체로 접근할 수 없다.
+		var a=100;	
+		this.getA=function(){return a;}
+		//this.setA=function(val){a=val}
+	}
+	var obj=new ObjTest();
+	console.log(obj.a);
+	console.log(obj.getA());
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

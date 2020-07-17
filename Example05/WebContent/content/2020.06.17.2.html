@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function MyCar(color="흰색",size="소형",speed=0,owner="지은"){
+		//if(!color){this.color="흰색"}else{this.color=color}
+		this.color=color;
+		this.size=size;
+		this.speed=speed;
+		this.owner=owner;
+		MyCar.prototype.printMe=function(){
+			document.write(this.color+"색의"+this.size+"크기의"+this.owner+"의 차가 만들어졌습니다.")
+			document.write("<br>");
+		}
+	}
+	function MCar(){}
+	var car1=new MyCar("노랑","소형",0,"설이");
+	var car2=new MyCar("검정","중형",0,"솜이");
+	var car3=new MyCar("빨강","대형",0,"사랑이");
+	var car4=new MyCar();
+	car1.printMe()
+	car2.printMe()
+	car3.printMe()
+	car4.printMe()
+	console.log(car1);
+	console.log(car1 instanceof MyCar);
+	console.log(car1 instanceof MCar);
+	console.log(car1 instanceof Object);
+	console.log(2 instanceof Object);
+	console.log("안녕" instanceof Object);
+	console.log(new String("안녕") instanceof Object);
+	console.log([3,4,5] instanceof Object);
+	console.log([3,4,5] instanceof Array);
+	function MyObj(str){
+		MyObj.prototype.toString=function(){this.str}
+	}
+	var m1=new MyObj("문자열");
+	console.log(typeof(m1));
+	document.write("<br>")
+	document.write(m1);
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

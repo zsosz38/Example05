@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script>
+var userArr=[];
+var a= prompt("구구단을 입력하세요","2-9");
+if(a.indexOf("-")==-1){
+	userArr[0]=a
+	userArr[1]=a
+}else{
+	userArr= a.split("-")
+	
+}
+
+var t="";
+var f=document.getElementsByTagName("body")[0];
+	for(var i=userArr[0];i<=userArr[1];i++){
+		var c="";
+		for(var j=1;j<=9;j++){
+			document.write(i+"*"+j+"="+i*j+"<br/>")		
+		}
+		t+='<div style="text-align:center;margin:3px;float:left;background-color:orange">'+c+'</div>';
+		
+	}
+	f.innerHTML=t
+	console.log(t)
+</script>
+
+</html>

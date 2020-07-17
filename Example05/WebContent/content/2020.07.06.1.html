@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//속성 설명자를 이용한 객체 속성 보안
+	var human= {name:"서지은",age:29};
+	Object.defineProperty(human, 'salary',{value: 150,writable:false});
+	human.salary=300;
+	console.log(human.salary);
+	console.log(human);
+	console.log(Object);
+	Object.defineProperties(human,
+			{'inOffice':{value:"2020-10-1",writable:false},
+			'outOffice':{value:"2020-12-10",writable:false}});
+	//객체 속성 보안을 위한 get,set 메소드 생성(액세서)
+	/* Object.defineProperty(human,'$ageage',{
+		enumerable:true,
+		get:function(){return this.$ageage+"세"},
+		set:function(val){if(val>0){this.$ageage=val}}
+	});
+	human.ageage=300;
+	console.log(human.ageage);
+	//객체변수에 숨김 속성을 주기 위해$ 접두사를 붙여야 get, set이 작동됩니다.
+	var human1={name:"서지은",$age:20,get age(){
+		return this.$age+"세"
+	},set age(val){
+		if(val>0){this.$age=val}
+	}}
+	human1.age=100;
+	console.log(human1.age);
+	human1.age=-10;
+	console.log(human1.age);
+	//기능 속성의 추가 확장 금지
+	Object.preventExtensions(human1);
+	human1.salary=300;
+	console.log(human1.salary); //undefined
+	//seal: 삭제금지 freeze: 수정과 삭제 금지
+	var human2 = {a:100, b:200};
+	Object.seal(human2);
+	delete human2.a;
+	console.log(human2.a);
+</script>
+
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+	document.write(parseInt("10")+"<br>");//10진수 10으로 변환
+	document.write(parseInt("010")+"<br>");//10진수 10으로 변환
+	document.write(parseInt("010",2)+"<br>");//10진수 2로 변환
+	document.write(parseInt("10",8)+"<br>");//10진수 8로 변환
+	document.write(parseInt("10",16)+"<br>");//10진수 21로 
+	document.write(parseInt("0x15")+"<br>");//10진수 21로
+	console.log(parseInt("kor27"));//NaN(not a number) 타입. 오류가 아니다.
+	console.log(3/0);//infinity 타입
+	console.log(isNaN(parseInt("kor27")));
+	console.log(isFinite(3/0));//false
+	console.log(decodeURI("%EC%86%8C%EB%85%80%EC%8B%9C%EB%8C%80"));
+	document.write("<br>");
+	document.write(encodeURI("소녀시대"));
+	//decodeURIcomponent()//,/?:@&=+$# 포함해서 변환
+	//encodeURIcomponent()//,/?:@&=+$# 포함해서 변환
+	
+
+</script>
+<body>
+
+</body>
+</html>

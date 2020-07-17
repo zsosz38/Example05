@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	console.log(8+5);//산술연산
+	console.log("8"+"5");//문자열연결연산(contact)
+	console.log("8"-"5");//묵시적 타입변환후 산술연산
+	//명시적 타입변환 후 더하기 산술연산 실행
+	console.log(Number("8")+Number("5"));
+	//1.Array(배열), Boolean(논리형), Date, Math, Number, String(문자열)
+	var num8 = new Number(8);
+	var num9=9;
+	var num7=num8;//객체를 가르키는 참조 주소가 복사된다.
+	// num7과 num8은 동일한 객체를 가르키는 주소를 가지고 있다.
+	var n1 = Number('8');//숫자8로 자동변경
+	var s1 = String(8);//문자8로 자동변경
+	var s2 = 8+"";//문자8로 변경
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

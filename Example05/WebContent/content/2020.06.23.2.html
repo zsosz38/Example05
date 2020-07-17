@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var testArr1 = [ "사과", "망고", "오렌지", "바나나", "수박" ];
+	//slice(startindex, endIndex); 특이사항: 마이너스값도 받는다 뒤로이동
+	var resArr1 = testArr1.slice(2, 4);//[오렌지, 바나나]
+	console.log(resArr1);
+	console.log(testArr1.slice(-4));//[망고,오렌지,바나나,수박]
+	//every 배열의 모든 요소가 테스트를 통과하면 true//and
+	//some 배열의 일부요소가 테스트를 통과하면 true//or
+	var testArr2 = [ 10, 20, 30, 40, 50 ];
+	var res2_1 = testArr2.every(function(val) {
+		return val > 5
+	});
+	console.log(res2_1);
+	var res2_2 = testArr2.some(function(val) {
+		return val > 50
+	});
+	console.log(res2_2);
+	var testArr3 = [ 'c', 'g', 'a', 'f', 't', 'x' ];
+	//sort([function(a,b){}]);
+	testArr3.sort();
+	console.log(testArr3);//오름차순
+	testArr3.reverse();
+	console.log(testArr3);//내림차순
+	var testArr4 = [ 50, 100, 20, 70, 120, 30 ];
+	testArr4.sort(function(a, b) {
+		return b - a
+	});
+	console.log(testArr4);
+	var testArr5 = [ '홍삼_홍길동', '강정_강정', '마루_호두마루', '무등산_강개울', '안개낀장충당_다래끼' ];
+	testArr5.sort(function(a, b) {
+		var ea = a.charAt(a.indexOf("_") + 1);
+		var eb = b.charAt(b.indexOf("_") + 1);
+		return ea.charCodeAt - eb.charCodeAt()
+	});
+	console.log(testArr5);
+	var testArr6 = [ 50, 60, 70, 20, 30 ];
+	console.log(userSort(testArr6));
+	function userSort(tArr) {
+		for (var i = 0; i < tArr.length - 1; i++) {
+			for (var j = i + 1; j < tArr.length; j++) {
+				if (tArr[i] > tArr[j])
+					var tmp;
+				tmp = tArr[i];
+				tArr[i] = tArr[j];
+				tArr[j] = tmp;
+			}
+		}
+	}//end for 
+	return tArr;}
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

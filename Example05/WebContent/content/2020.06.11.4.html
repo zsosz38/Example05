@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var userInput1=prompt("첫번째 숫자를 입력하세요");
+	var userInput2=prompt("두번째 숫자를 입력하세요");
+	var res= confirm("더할래, 곱할래");
+	var fbody;
+	if(res){
+		fbody="return a+b";
+		
+		/* alert(
+			add(parseInt(userInput1),parseInt(userInput2))
+		) */
+	}else{
+		fbody="return a*b";
+		/* alert(
+				multi(userInput1,userInput2)
+			) */
+	}var myfun= new Function("a","b",fbody)
+	alert(myfun(userInput1,userInput2));
+	;
+	/*function add(a,b){
+		return a+b;
+	}
+	function multi(a,b){
+		return a*b;
+	} */
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

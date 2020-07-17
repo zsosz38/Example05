@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//날짜 객체 생성 방법
+	var d1=new Date();
+	console.log(d1.toLocaleDateString());
+	console.log(d1.toLocaleTimeString());
+	console.log(d1.toLocaleString());
+	var d2= new Date(1570000000000);
+	console.log(d2.toLocaleString());
+	var d3= new Date('2020-3-20 10:50:35');
+	console.log(d3.toLocaleString());
+	var d4= new Date(2020,2,20,10,40,35);
+	console.log(d3.toLocaleString());
+	console.log(d1.getDate());
+	console.log(d1.getDay());
+	console.log(d1.getFullYear());
+	console.log(d1.getMilliseconds());
+	console.log(d1.getMinutes());
+	console.log(d1.getMonth()+1);
+	console.log(d1.getSeconds());
+	console.log(d1.getTime()/1000/60/60/24);//1970.1.1.midnight부터 시작되는 millisec이 나옴
+	console.log(new Date(d1.getTime()).toLocaleString());
+	console.log(d1.getUTCHours());
+	console.log(d1.getHours());
+	//Date.now(), Date.parse(dateString) => milliseconds
+	console.log(new Date(Date.now()).toLocaleString());
+	console.log(new Date(Date.parse('2020-10-11')).toLocaleString());
+	d4.setDate(30);
+	console.log(d4.toLocaleString())
+	d4.setMonth(5);
+	console.log(d4.toLocaleString())
+	
+	var curDate=new Date();
+	var tagDate=new Date('2020-12-25 11:30:00');
+	console.log((tagDate-curDate)/1000/60/60/24);
+	//console.log((cutDate+10).toLocaleString()); 적용되지 않는다. 문자열로 받음
+	
+	//날짜를 더하는 첫번째 방법
+	var y=curDate.getFullYear();
+	var m=curDate.getMonth();
+	var d=curDate.getDate()+10;
+	var h=curDate.getHours();
+	var i=curDate.getMinutes();
+	var s=curDate.getSeconds();
+	var ms=curDate.getMilliseconds();
+	
+	//두번째 방법
+	console.log(new Date(y,m,d,h,i,s,ms).toLocaleString());
+	curDate.getDate(curDate.getDate()+10);
+	console.log(curDate.toLocaleString());
+	//세번째 방법
+	var tmill= 10*24*60*60*1000;
+	curDate.setTime(curDate.getTime()+tmill);
+	console.log(curDate.toLocaleString());
+	var testObj={'2020-10-15':"오렌지","2020-03-10":"바나나",
+			"2020-05-15":"귤","2020-8-20":"수박"}
+	var today=Date.now();
+	for(var key in testObj){
+		var tms=Date.parse(key);
+		var gap=tms-today;
+		var gapDay=Math.floor(gap/1000/60/60/24);
+		document.write(testObj[key]+":"+"유통기한"+gapDay+"남았습니다.<br>");
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

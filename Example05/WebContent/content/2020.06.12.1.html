@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	const 꼬들밥=10000;//1000/10000=0.1*100=10%
+	const 찰진밥=15000;//1000/15000=0.06*100=7%
+	const 누룽지=20000;//1000/20000=0.05*100=5%
+	//1.대상 선정: 밥 짓는 기계
+	//2.기능 정의: 밥 관련 재료를 받아서 전기로 솥을 데워 일정 시간이 지나면 밥이 완성된다.
+	//3.재료: 쌀종류, 잡곡종류, 물, 부재료, 시간(꼬들밥,찰진밥,누룽지)
+	//4.결과: 재료로 지어진 밥
+	buildRice("쌀","콩","광천수","팥",꼬들밥,function(rs){
+		document.write(rs);
+	});
+	function buildRice(쌀종류,잡곡종류,물종류,부재료,시간,콜백){
+		var result="";
+		var tmpTime=0;
+		document.write(쌀종류+"밥을 짓기 시작합니다.<br>");
+		document.write(쌀종류+"위에"+잡곡종류+"을 올립니다.<br>");
+		document.write(물종류+"를 부어 수위를 맞춥니다.<br>");
+		document.write(부재료+"를 섞어줍니다.<br>");
+		document.write("취사가 시작됩니다.<br>");
+		document.write("<hr>");
+		var pid=setInterval(function(){
+			if(tmpTime<시간){
+				tmpTime+=1000
+				document.write((시간-tmpTime)/1000+"초 남았습니다.<br>");
+				document.write(tmpTime/시간*100+"% 진행되었습니다.<br>");
+			}else{
+			result=잡곡종류+쌀종류+부재료+"밥이 완성되었습니다.맛있게 드세요!<br><hr><hr>";
+			clearInterval(pid);//밥이 완성단계
+			return 콜백(result);
+			}
+		},1000);
+		return result;
+	}
+</script>
+</head>
+<body>
+</body>
+</html>

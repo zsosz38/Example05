@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+//이너함수는 외부함수 내에서만 쓰이고 외부에서 접근이 안된다.
+	function outerFun(e,f){
+		var result= innerFun(e,f)+innerFun(e,f);
+		return result;
+		function innerFun(a,b){return a+b;}
+	}	
+	console.log(outerFun(3,4));
+	
+	(function(){console.log("익명함수실행")})();
+</script>
+
+
+</head>
+<body>
+
+</body>
+</html>

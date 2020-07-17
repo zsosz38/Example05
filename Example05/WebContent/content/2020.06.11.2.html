@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+	//재귀함수(rescusive function)
+	var k=0;
+	function aaa(){
+		console.log("aaa함수가 실행 됩니다.");
+		var a=10;
+		k++;
+		if(k!=10){
+			aaa();
+		}
+	}
+	aaa();
+	setInterval(function(){
+		document.write(new Date().toLocaleString()+"<br/>");
+	},1000);
+	/*setTimeout(function(){
+		document.write(new Date().toLocaleString());
+	},1000);*/
+</script>
+
+<body>
+
+</body>
+</html>

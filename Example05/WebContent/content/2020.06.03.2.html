@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var arr1= [10,20,30,40,50];
+	for(var i=0;i<arr1.length;i++){
+		document.write([i]+"<br>");
+	}
+	document.write("=============<br>");
+	var j=0;
+	while(j<arr1.length){
+		document.write(arr1[j]+"<br>");
+		j++;
+	}
+	//while
+	var k=0;
+	while(true){
+		if(arr1.length<=k)break;
+		document.write(arr1[k]+"<br>");
+		k++;
+	}
+	
+	var arr_two =[10,20,30,40,50];
+	var arr_three =[200,300,400];
+	var arr_four =[100,200];
+	var arr_one =[arr_two,arr_three,arr_four];
+	document.write("===============<br>")
+	for(var i=0;i<arr_one.length;i++){
+		for(var j=0;j<arr_one[i].length;j++){
+			document.write(arr_one[i][j]+"<br>");
+		}
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

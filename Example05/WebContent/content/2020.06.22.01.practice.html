@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>웹브라우저  히스토리 기능</h1>
+<label>이동 페이지주소<input type="text" value="페이지를 입력하세요" id="webAddr"></label>
+<br>
+<label>사이트이름<input type="text" value="사이트를 입력하세요" id="webName"></label>
+<br>
+<input type="button" value="이동" id="go">
+<input type="button" value="앞으로" id="forward">
+<input type="button" value="뒤로" id="back">
+<br>
+<div id="result"></div>
+
+</body>
+
+<script>
+var webAddr=document.getElementById("webAddr");
+var webName=document.getElementById("webName");
+var go=document.getElementById("go");
+var forward=document.getElementById("forward");
+var back=document.getElementById("back");
+var result=document.getElementById("result");
+var prePage=[];
+var nextPage=[];
+var curPage="";
+var sw=false;
+
+go.onclick=function(){
+	if(sw)
+		prePageStack.push(curPage);
+	curPage=WebAddress.value+"!"+WebName.value;
+	result.innerHTML="<p>"+WebAddress.value+"주소의"+WebName.value+"사이트로 이동합니다."+"</p>"
+						+result.innerHTML;
+	
+}sw=true; 
+forward.onclick=function(){
+	
+}
+back.onclick=function(prePageStack.length<=0){
+	
+}
+
+</script>
+</html>

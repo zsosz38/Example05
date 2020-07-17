@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var obj={};
+	obj.a="abc";
+	obj["b"]="bcd";
+	var c="c";
+	obj[c]="cde";
+	console.log(obj)
+	var obj1=new Object();
+	obj1.a="aaa";
+	obj1.b="bbb";
+	obj1["c"]="ccc";
+	console.log(obj1);
+	var obj2={a:"aaa","b":"bbb",c:"ccc"}; //var arr=[0,1,2]
+	var testObj={aaa:"ccc","bbb":"ddd",ee:"ffff"};
+	var txt="eee";
+	testObj.txt //잘못된 방법 
+	testObj[txt] //올바른 산출방법
+	var obj3={0:"a","1":"b",2:"c"}
+	obj3[2]// || obj3["2"]  X Obj3.2
+	var myObj={"name":"hongildong",age:30,"addr":"광주"};
+	var convertDB=[{name:{familyName:"홍",subName:"길동"},age:30,addr:"광주"},
+			{name:{familyName:"이",subName:"순신"},age:20,addr:"서울"},
+			{name:{familyName:"서",subName:"지은"},age:29,addr:"광주"}];
+	JSON.stringify(convertDB);//json데이터형식
+	//XML 형식
+	/*var xmlData=
+	"<구성원>"+
+		"<구성>"+
+			"<성명><성>서</성><이름>지은</이름></성명>"+
+			"<나이>29</나이>"+
+			"<주소>광주</주소>"+
+		"</구성>"+
+		"<구성><성명><성>서</성><이름>지은</이름></성명><나이>29</나이>"+
+			"<주소>광주</주소></구성>"+
+		"<구성><성명><성>서</성><이름>지은</이름></성명>"+
+		"<나이>29</나이><주소>광주</주소> </구성>"+
+	"</구성원>";*/
+	
+	console.log(convertDB);
+	//console.log(xmlData);
+	for(var i=0;i<convertDB.length;i++){//
+		var obj=convertDB[i];//{name:{familyName:"홍",subName:"길동"},age:30,addr:"광주"}
+		var keys=Object.keys(obj);//키 배열 리턴
+		for(var j=0;j<keys.length;j++){//키별 순회 순환문
+			var keys_sub=Object.keys(obj[keys[j]]);
+			for(var k=0;k<keys_sub.length;k++){
+				document.write(keys_sub[k]+":"+
+						obj[keys[j]][keys_sub[k]]);
+			}
+		}
+	
+	}
+	document.write("<br>");
+	for(var i=0;i<convertDB.length;i++){
+		for(var key in convertDB[i]){
+			for(var key2 in convertDB[i][key]){
+				document.write(key2+":"+convertDB[i][key][key2]);
+			}
+		}
+	}
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>

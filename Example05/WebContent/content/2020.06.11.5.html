@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var cup= juicer("사과","찬물","꿀");
+	document.write(cup+"와우! 맛나네<br>");
+	var cup1= juicer("바나나","우유","설탕");
+	document.write(cup1+"와우! 밧나네<br>");
+	function juicer(과일종류,물종류,첨가물종류){//쥬스를 만드는 기계
+		//필요데이터: 과일, 물, 첨가물- 함수외부에서 호출자가 주입시키는 변수
+		document.write(과일종류+"와"+물종류+"와"+첨가물종류+"를 섞습니다.<br>")
+		document.write(과일종류+"를 꾹 눌러 착즙합니다.<br>");
+		var result= 과일종류+"쥬스가 만들어 졌습니다. 맛있게 드세요!!<br>";
+		return result;
+	
+	}
+	//함수 생성 시 고려해야할 사항
+		//1.어떤 기능을 만들건지?
+		//2.기능을 수행하기 위한 재료는 무엇인지?(파라메터)
+		//3.기능을 수행한 결과로 무엇을 반환할것인지?(반환값)
+	//메소드 생성시 고려해야될 사항
+		//1.어떤 기능을 만들건지?
+		//2.기능을 수행하기 위한 재료는 무엇인지?(파라메터)
+		//3.기능을 수행한 결과로 무엇을 반환할것인지?(반환값)
+		//4.객체의 어떤 속성(특성)을 사용할건지?
+</script>
+</head>
+<body>
+
+</body>
+</html>
