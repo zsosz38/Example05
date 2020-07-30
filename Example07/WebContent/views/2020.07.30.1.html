@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#container{height:400px;padding:20px;background:black}
+	canvas{width:500px;height:200px}
+	#cv1{background:yellow}#cv2{background:grey}
+</style>
+</head>
+<body>
+	<div id="container">
+		<canvas id="cv1"></canvas>
+		<canvas id="cv2"></canvas>	
+	</div>
+</body>
+<script>
+	let cv1 = document.getElementById("cv1");
+	let cv2 = document.getElementById("cv2");
+	let ctx1 = cv1.getContext("2d");
+	let ctx2 = cv2.getContext("2d");
+</script>
+</html>

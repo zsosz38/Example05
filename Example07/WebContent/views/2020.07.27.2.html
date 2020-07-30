@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<a href="https://www.naver.com">네이버 가기</a>
+</body>
+	<script>
+	//기본이벤트 중시
+		let tagA = document.querySelector("a");
+		//tagA.onclick=funtion(){return false}
+		
+		tagA.addEventListener("click",function(e){
+			e.preventDefault();//모든 이벤트에 적용 가능.
+		});
+		document.addEventListener("keydown",function(e){
+		
+			console.log(e.keyCode);
+			console.log(e.key);
+		});
+		//텍스트 상자 셀렉션 글자수 제한 이벤트
+	</script>
+</html>

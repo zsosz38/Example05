@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="mdiv"></div>
+</body>
+<script>
+	let mdiv= document.querySelector("#mdiv");
+	let mp= document.createElement("p");
+	let txt= docoument.createText("추가된 노드의 텍스트입니다.");
+	mp.appendChild(txt);
+	mdiv.appendChild(mp);
+	//mdiv.insertBefore(mp);//자식객체 무조건 맨 끝에 삽입한다.
+	mdiv.insertBefore(mp,mdiv.childNodes[0]);//자식객체에 넣는다.
+	console.log(mdiv);
+	
+</script>
+</html>

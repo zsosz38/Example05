@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="target" style="float:left;width:300px;height:400px;background:yellow;overflow:scroll">
+	<div style="width:10px;height:20px;background:purple;position:relative;left:200px;top:200px"></div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+안쪽 스크롤 생성
+</div>	
+
+<div id="result" style="float:left;"></div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+바깥쪽 스크롤 생성
+
+</body>
+<script>
+	//screenX,Y -화면기준(문서와 상관없는 오로지 화면 값만. 화면 크기 변경할때마다 바뀜)
+	//pageX,Y - 문서기준 (문서 바깥쪽 기준으로 스크롤에 따른 변화가 있다. 문서 안에서는 스크롤에 따른 변화없다.)
+	//clientX,Y - 창기준(웹 브라우저 창 기준, 스크롤 영향 없음)
+	//offsetX,Y - 타겟엘리먼트 기준(클릭된 타겟 내에서의 클릭좌표, 스크롤 영향 없음)
+	let result= document.getElementById("result");
+	let target= document.getElementById("target");
+	document.addEventListener("click",printEvent);
+	target.addEventListener("click",printEvent);
+	function printEvent(e){
+		e.stopPropagation();
+		let str= "";
+		str += "스크린Y: "+e.screenY+"<br>";
+		str += "페이지Y: "+e.pageY+"<br>";
+		str += "클라이언트Y: "+e.clientY+"<br>";
+		str += "오프셋Y: "+e.offsetY+"<br>";
+		str += "내부엘리먼트 위치: "+(e.offsetY+this.scrollTop)+"<br>"
+		str += "++++++++++++++++++++<br>";
+		result.innerHTML += str;
+		console.log(target.scrollTop)
+		e.stopPropagation();		
+	};
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+	div{position:absolute;left:2px;top:2px;}
+	
+</style>
+<body>
+	<div style = "width:20px; height:20px; background:red"></div>
+</body>
+<script>
+	let cnt=1;
+	document.addEventListener("click",function(e){
+		console.log("클릭이벤트 발생:"+cnt);
+		cnt++;
+		console.log(e);
+	});
+	
+	/*
+	현재 윈도우 기준 위치값 - client X,Y
+	타겟 엘리먼트 기준 위치값 - offset X,Y
+	문서에서의 위치값 - page X,Y
+	화면기준 위치값 - screen X,Y
+	*/
+</script>
+</html>

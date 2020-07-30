@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="iamdiv" aaa="bbb"
+	style="width:100px; height:100px;background-color:red;">
+		<p>div contents</p>
+	</div>
+	<div id="mdiv">
+		<h1>nice to meet you</h1>
+		<h2><span style="color:blue">see you again!</span> good bye</h2>
+		<h3> love letter...</h3>
+	</div>
+	<div name="ndiv"></div>
+	<p name="ndiv"></p>
+</body>
+<script>
+	let multiDiv= document.querySelectorAll('div');
+	let singleDiv= document.querySelector('div');
+	console.log(multiDiv);
+	console.log(singleDiv);
+	let sDiv= document.querySelector('div h2');
+	
+	let names= document.getElementsByName('ndiv');
+	console.log(names);
+	let iamdiv= document.getElementById("iamdiv");
+	console.log(iamdiv.tagName);
+	console.log(iamdiv.id);
+	console.log(iamdiv.class);
+	console.log(iamdiv.style);
+	console..log(iamdiv.attributes[1].name);
+	console..log(iamdiv.attributes[1].nodeValue);
+	console.log(iamdiv.innerHTML);
+	console.log(iamdiv.innerText);
+	console.log(iamdiv.getAttribute("id"));
+	console.log(iamdiv.getAttribute("aaa"));
+	iamdiv.setAttribute("aaa","zzz");
+	console.log(iamdiv.getAttribute("aaa"));
+	let mdiv=document.getElemenetById("mdiv");
+	mdiv_childs=mdiv.clildNodes;
+	for(let i-0;i<mdiv_childs.lenght;i++){
+		if(!mdiv_childs[i].innerText){
+		console.log(mdiv_childs[i].innerText);
+		}
+	}
+</script>
+</html>

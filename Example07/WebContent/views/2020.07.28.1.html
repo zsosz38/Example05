@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<textarea rows="10" cols="60" id="tt"></textarea>
+	<div id="result"></div>
+	<div id="sel"></div>
+</body>
+<script>
+	let tt=document.getElementById("tt");
+	let result=document.getElementById("result");
+	let sel=document.getElementById("sel"); 
+	tt.addEventListener("keydown",function(){
+		console.log("키down");
+		console.log(tt.value);
+		if(tt.value.length>=100){
+			tt.value=tt.value.substring(0,tt.value.length-2);
+		}
+		result.innerText="현재 글자수: " +tt.value.length+ "개";
+		});
+	tt.addEventListener("keypress",function(){console.log("키press")});
+	tt.addEventListener("keyup",function(){console.log("키up")});
+	tt.addEventListener("select",function(e){
+		sel.innerText = 
+		tt.value.substring
+			(e.target.selectionStart,e.target.selectionEnd)
+	})
+</script>
+</html>
